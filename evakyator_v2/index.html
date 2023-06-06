@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Evacuation</title>
+      <link rel="stylesheet" href="css/main.css">
+      <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+            integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+               crossorigin=""/>
+         <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@3.2.12/dist/leaflet-routing-machine.css" />
+         <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" />
+   </head>
+   <body>
+      <header>
+         <div class="container">
+            <a href="#" class="logo">ЛазаревCoo</a>
+            <nav class="menu">
+               <ul>
+                  <li><a href="#about">О нас</a></li>
+                  <li><a href="#services">Услуги</a></li>
+                  <li><a href="#contacts">Контакты</a></li>
+               </ul>
+            </nav>
+            <div class="phone">716-22-66</div>
+         </div>
+      </header>
+
+      <section class="hero">
+         <div class="container">
+            <h1>Эвакуация</h1>
+            <p>Спасаем ваши авто!</p>
+            <a href="#calculator-section" class="btn">Расчет стоимости</a>
+         </div>
+      </section>
+
+      <section id="about">
+         <div class="container">
+            <h2>О нас</h2>            
+               <p> Служба эвакуации «RM» − это коллектив профессионалов, который уже не первый год занимается перевозкой машин эвакуатором в Санкт-Петербурге и Ленинградской области. Мы стремимся найти индивидуальный подход к каждому клиенту, поэтому всегда применяется разработанная нами гибкая ценовая система с возможностью скидок и бонусов. Кроме того, наше предложение одно из самых выгодных в регионе.
+
+                  Услуги автоэвакуатора могут понадобиться каждому автовладельцу, ведь никто не застрахован от поломки транспортного средства. В этом случае доверьте все заботы об авто специалистам нашей компании. Обратившись в «Рентал Машинс», Вы можете вызвать эвакуатор в Санкт-Петербурге круглосуточно. Наши специалисты придут на помощь в любой момент. Мы понимаем, насколько ценно Ваше время, поэтому готовы приехать оперативно: от вызова до прибытия сотрудников нашей компании обычно проходит от 15 минут до часа, в зависимости от дорожной обстановки.Еще один аргумент в пользу того, чтобы воспользоваться нашими услугами эвакуации − собственный большой парк спецтехники. Грузоподъемность транспорта позволяет осуществить доставку эвакуатором по СПб легковых машин, микроавтобусов, джипов, спецтехники весом до 5 тонн.  Еще один аргумент в пользу того, чтобы воспользоваться нашими услугами эвакуации − собственный большой парк спецтехники. Грузоподъемность транспорта позволяет осуществить доставку эвакуатором по СПб легковых машин, микроавтобусов, джипов, спецтехники весом до 5 тонн. Позвонив диспетчеру по номеру (812) 716-22-66, Вы сможете узнать более подробно о ценах и условиях вызова спецавтомобиля для аварийной, быстрой эвакуации. Сохраните наш номер в своем мобильном, и в любой ситуации мы придем Вам на помощь.
+
+                  Мы не занимаемся принудительным перемещением на штрафстоянку! Воспользуйтесь нашими услугами и убедитесь сами, на сайте есть удобный калькулятор маршрута и цен</p>           
+         </div>
+      </section>
+
+      <section id="services">
+         <div class="container">
+            <h2>Наши услуги помогут вам!</h2>
+            <div class="row">
+               <div class="col">
+                  <img src="img/evacuation-service-1.jpg" alt="Evacuation service 1">
+                  <h3>Эвакуация</h3>
+                  <p>Осусществляем эвакуацию из любой точки СПб и Ленинградской области</p>
+               </div>
+               <div class="col">
+                  <img src="img/evacuation-service-2.jpg" alt="Evacuation service 2">
+                  <h3>Сервис</h3>
+                  <p>Возможность обратиться в наш автосервис, где вам окажут качественный и быстрый ремонт авто</p>
+               </div>
+               <div class="col">
+                  <img src="img/evacuation-service-3.jpg" alt="Evacuation service 3">
+                  <h3>Эвакуация спецтехники</h3>
+                  <p>Мы осуществляем эвакуацию спецтехники до 5 тонн, лодок и мотоциклов</p>
+               </div>
+               <div class="col">
+                  <img src="img/evacuation-service-4.jpg" alt="Evacuation service 3">
+                  <h3>Дополнительные услуги</h3>
+                  <p>Выездная диагностика, услуга трезвый водитель</p>
+               </div>
+            </div>
+         </div>
+      </section>
+
+      <section id="calculator-section">
+         <div class="container">
+            <div id="map"></div>
+            <p id="distance"></p>
+            <div class="calculator-section">
+               <h2>Расчет стоимости</h2>
+               <form class="calculator-form">           
+                   <div class="form-group">
+                       <h3>Выберите автомобиль:</h3>
+                       <select id="car-type" name="car-type">
+                           <option value="sheet">отечественный</option>
+                           <option value="small">иномарка A, B, Golf-класс</option>
+                           <option value="medium">иномарка D, E, M, S (представительские, внедорожники, минивэны)</option>
+                           <option value="moto">мототехника</option>
+                           <option value="big">спецтехника, микроавтобусы до 3 тонн</option>
+                           <option value="Lbig">спецтехника, микроавтобусы до 4.5 тонн</option>
+                           <option value="XLbig">спецтехника, микроавтобусы до 5 тонн</option>
+                       </select>
+                   </div>
+           
+                   <div class="form-group">
+                       <h3>Выберите тариф:</h3>
+                       <select id="payment-method" name="payment-method">
+                           <option value="hourly">почасовая оплата</option>
+                           <option value="fix">фиксированная цена</option>
+                       </select>
+                   </div>
+           
+                   <div class="form-group">
+                       <h3>Выберете критерии:</h3>
+                       <div>
+                           <input type="checkbox" id="blocked" name="blocked">
+                           <label for="blocked">Заблокированны ли колеса?</label>
+                       </div>
+           
+                       <div>
+                           <input type="checkbox" id="ditch" name="ditch">
+                           <label for="ditch">Буксировка из кювета</label>
+                       </div>
+           
+                       <div>
+                           <input type="checkbox" id="night" name="night">
+                           <label for="night">Ночной тариф</label>
+                       </div>
+                   </div>
+           
+                   <button id="calculate-btn" type="button">Рассчитать</button>
+               </form>
+               <button id="call-btn" type="button">Вызвать грузовик</button>
+               <div id="order-details"></div>
+           </div>
+         </div>
+      </section>
+
+     </div>
+
+         <section id="contacts">
+            <div class="container">
+               <h2>Контакты</h2>
+               <div class="row">
+                  <div class="col">
+                     <h3>Телефон</h3>
+                     <ul>
+                        <li><a>716-22-66</a></li>                   
+                     </ul>
+                  </div>
+                  <div class="col">
+                     <h3>Email</h3>
+                     <ul>
+                        <li><a>лех скинь почту</a></li>                     
+                     </ul>
+                  </div>                 
+               </div>
+               <form action="#" method="POST" class="contact-form">
+                  <div class="row">
+                     <div class="col-6">
+                        <input type="text" name="name" placeholder="Введите имя:" required>
+                     </div>
+                     <div class="col-6">
+                        <input type="email" name="email" placeholder="Введите email:" required>
+                     </div>
+                  </div>
+                  <textarea name="message" placeholder="Введите текст заявки:" required></textarea>
+                  <button type="submit" class="btn">Отправить</button>
+               </form>
+            </div>
+         </section>
+
+         
+
+         <footer>
+            <div class="container">
+               <span class="copy">© Evacuation 2023</span>
+            </div>
+         </footer>
+
+         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+         <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+                  integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+                  crossorigin=""></script>
+         <script src="https://unpkg.com/leaflet-routing-machine@3.2.12/dist/leaflet-routing-machine.js"></script>
+         <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
+         <script src="js/main.js"></script>
+      </body>
+   </html>

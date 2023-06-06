@@ -1,0 +1,400 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Oswald:wght@200&family=Playfair+Display&display=swap');
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+ }
+ 
+ body {
+	font-family: "Oswald", serif;
+ }
+ 
+ .container {
+	max-width: 4000px;
+	margin: 0 auto;
+	padding: 0 20px;
+ }
+ 
+ header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 20px;
+	background-color: #ffffff;
+	background: transparent;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+	position: fixed;
+	width: 100%;
+	z-index: 1;
+ }
+ 
+ .logo {
+	color: #fff;
+	cursor: pointer;
+	font-size: 50px;
+	line-height: 45px;
+	margin-left: 40px;
+	font-weight: bold;
+	font-family: "Oswald", serif;
+ }
+ 
+ .menu {
+	display: none;
+ }
+ 
+ .menu ul {
+	list-style: none;
+	display: flex;
+ }
+ 
+ .menu li {
+	margin: 0 10px;
+ }
+ 
+ .menu a {
+	color: #ffffff;
+	text-decoration: none;
+	font-size: 25px;
+ }
+ 
+ .phone {
+	font-size: 30px;
+	color: #000;
+ }
+ 
+ @media (min-width: 768px) {
+	.menu {
+	   display: flex;
+	}
+ 
+	.phone {
+	   display: none;
+	}
+ 
+	.menu li {
+	   margin: 0 20px;
+	}
+ 
+	.btn {
+	   padding: 10px 20px;
+	}
+ }
+
+ .fixed{
+	z-index: 5000;
+	background: #fff;
+	border-bottom: 1px solid silver;
+ }
+ 
+.fixed .logo{
+	color: #343434;
+}
+
+.fixed .menu a{
+	color: #343434;
+}
+ 
+ .hero {
+	height: 100vh;
+	background: url(../img/evacuation-hero.jpg) no-repeat center center fixed;
+	background-blend-mode: multiply;
+	background-color: #708299;
+	background-size: cover;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	color: #ffffff;
+	
+ }
+ 
+ .hero h1 {
+	font-size: 100px;
+	margin-bottom: 30px;
+ }
+ 
+ .hero p {
+	font-size: 40px;
+	margin-bottom: 40px;
+ }
+ 
+ .btn {
+	display: inline-block;
+	background-color: #cc3e45;
+	color: #fff;
+	padding: 8px 16px;
+	border-radius: 30px;
+	text-align: center;
+	text-decoration: none;
+	font-size: 16px;
+	cursor: pointer;
+	transition: background-color 0.3s;
+ }
+ 
+ .btn:hover {
+	background-color: #6b5ba3;
+ }
+ 
+ #about h2 {
+	font-size: 40px;
+	margin-bottom: 50px;
+	text-align: center;
+ }
+
+ #about p {
+	font-size: 20px;
+	margin-bottom: 50px;
+	text-align: center;
+ }
+ 
+ .row {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	align-items: center;
+ }
+ 
+ .col {
+	flex-basis: 45%;
+   }
+   
+   .col img {
+	width: 100%;
+   }
+ .col p {
+	font-size: 20px;
+	margin-top: 40px;
+	margin-bottom: 50px;
+	text-align: center;
+	flex: 40px;
+ }
+#services{
+	height: 140vh;
+	background: url(../img/evacuator-services.png) no-repeat center center fixed;
+	background-blend-mode: multiply;
+	background-color: #4f1c75;
+	background-size: cover;
+	background-attachment: fixed;
+	padding: 100px 0;
+	width: 100%;
+	text-align: center;
+	color: #fff;
+	margin: auto;
+}
+ #services h2 {
+	font-size: 40px;
+	margin-bottom: 50px;
+	text-align: center;
+ }
+ 
+ #services .row {
+	display: flex;
+	justify-content: center;
+ }
+ 
+ #services .col {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	margin: 20px;
+ }
+ 
+ #services .col img {
+	width: 60%;
+	flex-wrap: wrap;
+	
+ }
+ 
+ #services h3 {
+	font-size: 24px;
+	margin-top: 20px;
+	margin-bottom: 10px;
+ }
+ 
+ #services p {
+	font-size: 18px;
+	color: #ffffff;
+ }
+ 
+  .calculator-section {
+  max-width: 800px;
+  margin: 0 auto;
+  margin-bottom: 50px;
+ }
+ 
+ .calculator-form {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	align-items: stretch;
+ }
+  
+  .form-group {
+	flex-basis: 48%;
+	margin-bottom: 20px;
+  }
+  
+  .form-group label {
+	display: block;
+	margin-bottom: 10px;
+  }
+  
+  .form-group input,
+  .form-group select {
+	width: 100%;
+	padding: 10px;
+	border: 2px solid #ccc;
+	border-radius: 5px;
+  }
+  
+  #calculate-btn {
+	display: block;
+	width: 100%;
+	padding: 10px;
+	background-color: #007bff;
+	color: #fff;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	margin-top: 20px;
+  }
+  
+  #calculate-btn:hover {
+	background-color: #0062cc;
+  }
+  
+  #map {
+	height: 500px;
+	margin: 20px 0;
+  }
+  
+  #call-btn {
+	display: block;
+	width: 100%;
+	padding: 10px;
+	background-color: #007bff;
+	color: #fff;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	margin-top: 20px;
+  }
+  
+  #call-btn:hover {
+	background-color: #0062cc;
+  }
+
+  #result {
+	margin-top: 20px;
+	text-align: center;
+	font-size: 24px;
+	font-weight: bold;
+	margin-bottom: 50px;
+  }
+
+  #order-message {
+	margin-top: 20px;
+	text-align: center;
+	font-size: 24px;
+	font-weight: bold;
+	margin-bottom: 50px;
+  }
+  
+  #error-msg {
+	color: red;
+  }
+  
+  .loading {
+	display: none;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	font-size: 24px;
+	font-weight: bold;
+  }
+ 
+  #contacts {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 100%;
+	float: left;
+	padding-bottom: 40px;
+	padding-top: 40px;
+	border-top: 4px solid #ccc;
+	background: #f4f4f4;
+  }
+
+ #contacts h2 {
+	font-size: 40px;
+	margin-bottom: 50px;
+	text-align: center;
+ }
+ 
+ #contacts form {
+	margin-top: 50px;
+ }
+ 
+ #contacts form .row {
+	margin-bottom: 20px;
+ }
+ 
+ #contacts form textarea {
+	resize: none;
+	height: 200px;
+	width: 100%;
+	border: 1px solid #ccc;
+	padding: 10px;
+	font-size: 18px;
+}
+
+#contacts form input,
+#contacts form textarea {
+   border-radius: 5px;
+   border: 1px solid #ccc;
+   padding: 10px;
+   font-size: 18px;
+}
+
+#contacts form input:focus,
+#contacts form textarea:focus {
+   outline: none;
+   box-shadow: 0 0 5px #f44336;
+}
+
+#contacts .info {
+   display: flex;
+   justify-content: space-between;
+   margin-top: 50px;
+}
+
+#contacts .info .col {
+   width: 30%;
+}
+
+#contacts .info h4 {
+   font-size: 20px;
+   margin-bottom: 10px;
+}
+
+#contacts .info ul {
+   list-style: none;
+}
+
+#contacts .info li {
+   margin-bottom: 10px;
+}
+
+footer {
+   background-color: #000;
+   color: #fff;
+   padding: 20px;
+   text-align: center;
+}
+
+
