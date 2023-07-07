@@ -4,6 +4,7 @@
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <title>Evacuation</title>
+      <meta name="description" content="Опытные специалисты по эвакуации автомобилей. Услуги буксировки, ночного тарифа и более. Звоните 716-22-66.">
       <link rel="stylesheet" href="css/main.css">
       <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
             integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
@@ -102,21 +103,31 @@
                    </div>
            
                    <div class="form-group">
-                       <h3>Выберете критерии:</h3>
-                       <div>
-                           <input type="checkbox" id="blocked" name="blocked">
-                           <label for="blocked">Заблокированны ли колеса?</label>
-                       </div>
-           
-                       <div>
-                           <input type="checkbox" id="ditch" name="ditch">
-                           <label for="ditch">Буксировка из кювета</label>
-                       </div>
-           
-                       <div>
-                           <input type="checkbox" id="night" name="night">
-                           <label for="night">Ночной тариф</label>
-                       </div>
+                     <h3>Сколько ведущих колес заблокированно?<h3>                      
+                           <select for="blocked">
+                              <option value="zero">0</option>
+                              <option value="one">1</option>
+                              <option value="two">2</option>
+                              <option value="three">3</option>
+                              <option value="four">4</option>
+                           </select>
+                   </div>
+
+                   <div class="form-group">
+                        <h3>Выберете критерии:</h3>
+                           <div>
+                                 <label for="ditch">Буксировка из кювета</label>
+                                 <input type="checkbox" id="ditch" name="ditch">
+                           </div>
+               
+                           <div>                          
+                                 <label for="night">Ночной тариф</label>
+                                 <input type="checkbox" id="night" name="night">
+                           </div>
+                           <div>                          
+                                 <label for="ZSD">ЗСД</label>
+                                 <input type="checkbox" id="ZSD" name="ZSD">
+                           </div>
                    </div>
            
                    <button id="calculate-btn" type="button">Рассчитать</button>
