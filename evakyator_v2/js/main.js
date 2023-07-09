@@ -24,23 +24,14 @@ $(document).ready(function() {
  attribution: '&copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors'
  }).addTo(map);
 
- var geocoderOptions = {
-   geocoderOptions: {
-     nominatim: {
-       params: {
-         city: 'Санкт-Петербург' 
-       }
-     }
-   }
- };
 
  var control = L.Routing.control({
  position: 'topleft',
- router: L.Routing.osrmv1({
-    serviceUrl: 'https://router.project-osrm.org/route/v1'
+ router: new L.Routing.mapbox('pk.eyJ1IjoibWFwdGVzdGVyMjI4IiwiYSI6ImNsanR3NXMwYzAwZDQzdW4xbG9weHlmajQifQ.LR_w7iaUZdR5Uk7C3m30DQ',{
+   alternatives: true
  }),
  routeWhileDragging: true,
- geocoder: L.Control.Geocoder.nominatim(geocoderOptions)
+ geocoder: L.Control.Geocoder.nominatim()
  }).addTo(map);
 
  var center1 = L.latLng(59.94, 30.25);
@@ -55,10 +46,11 @@ $(document).ready(function() {
  var isInArea2;
 
  var distance = document.getElementById("distance");
- var path = 0;
+ let path;
  control.on('routesfound', function(e) {
  var route = e.routes[0];
  path = (route.summary.totalDistance/1000).toFixed(2)
+ console.log(path)
  distance.innerText = "Расстояние: " + (route.summary.totalDistance/1000).toFixed(2) + " км";
  isInArea1 = area1.getBounds().contains(route.coordinates[0]) && area1.getBounds().contains(route.coordinates[route.coordinates.length - 1]);
  isInArea2 = area2.getBounds().contains(route.coordinates[0]) && area2.getBounds().contains(route.coordinates[route.coordinates.length - 1]);
@@ -85,30 +77,28 @@ document.getElementById("calculate-btn").addEventListener("click", function calc
          if (blocked=== "four") {blockedWheels = 2000};
        var ditch = document.getElementById("ditch").checked ? 750 : 0;
        var night = document.getElementById("night").checked ? 0.8 : 1;
-       var ZSD = document.getElementById("ZSD").checked ? 200 : 0;
-       var loading = isInArea2 == true ? 1200 : 2000;
+       var loading = isInArea2 == true ? 3500 : 2500;
        if (isInArea1 == true) {
          if (document.getElementById("payment-method").value === "hourly"){
-            cost.innerText = "Цена за киллометр: " + ((25 * night) + 20).toFixed(2) + "руб за километр, погрузка будет стоить: " + (loading + ditch + blockedWheels + ZSD)
+            cost.innerText = "Цена за час: " + (2500) + ", погрузка будет стоить: " + (loading + ditch + blockedWheels)
          } else {
-            cost.innerText = "Цена: " + (25 * rpath * night + ditch + blockedWheels + loading + ZSD).toFixed(2) + "руб";
+            cost.innerText = "Цена: " + (80 * rpath * night + ditch + blockedWheels + loading).toFixed(2) + "руб";
          }
       } else { cost.innerText = "Вы указали зону в который эвакуация не осуществляется, пожалуйста укажите корректные адреса в пределах СПб и ЛО, либо свяжитесь с нами по телефону: 716-22-66"
       }
     }
 );
  // ograni4it' koli4estvo to4ek na karte
- //sprosit' y lehi orientirovo4nie ceni, i symet' ob'9snit' vsu hyinu
  //vnedrit' otpravky emailov i ograni4it' do 2 v 4as s odnogo ip
  //vi3vat evik
 // gl9nyt' hostingi i domeni s podderjkoi rassilok php i td
-//gl9nyt' kak nakry4ivat' botov
-//gl9nyt' seo i traffik
+
 //napisat' 4to 9 sdelal plus minys i 4to ispol'3oval videlit' potnie dl9 seb9 momenti
 // vnesti po4ty
 //so3dat' server osrm ili ispol'3ovat' beslatnii server s bol'shim koli4estvom 3aprosov
 //conf file
 
+//osnovana9 problema bila v tom 4to nepravel'no podklu4enni biblioetki
 //domen rm-evakyator.ru
 
 // !!!!!perepisat' ra3vivai svoe ymenie stryktyrirovat'
