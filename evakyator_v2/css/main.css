@@ -13,7 +13,7 @@
  .container {
 	max-width: 4000px;
 	margin: 0 auto;
-	padding: 0 20px;
+	padding: 0 10px;
  }
  
  header {
@@ -55,12 +55,12 @@
  .menu a {
 	color: #ffffff;
 	text-decoration: none;
-	font-size: 25px;
+	font-size: 40px;
  }
  
  .phone {
-	font-size: 30px;
-	color: #000;
+	font-size: 40px;
+	color: #ffffff;
  }
  
  @media (min-width: 768px) {
@@ -70,6 +70,7 @@
  
 	.phone {
 	   display: none;
+	   color: #ffffff;
 	}
  
 	.menu li {
@@ -94,6 +95,11 @@
 .fixed .menu a{
 	color: #343434;
 }
+
+.fixed .phone{
+	color: #343434;
+}
+
  
  .hero {
 	height: 100vh;
@@ -128,9 +134,10 @@
 	border-radius: 30px;
 	text-align: center;
 	text-decoration: none;
-	font-size: 16px;
+	font-size: 20px;
 	cursor: pointer;
 	transition: background-color 0.3s;
+	
  }
  
  .btn:hover {
@@ -144,7 +151,7 @@
  }
 
  #about p {
-	font-size: 20px;
+	font-size: 25px;
 	margin-bottom: 50px;
 	text-align: center;
  }
@@ -154,6 +161,7 @@
 	flex-wrap: wrap;
 	justify-content: space-between;
 	align-items: center;
+	font-size: 25px;
  }
  
  .col {
@@ -170,7 +178,8 @@
 	text-align: center;
 	flex: 40px;
  }
-#services{
+  
+  #services {
 	height: 140vh;
 	background: url(../img/evacuator-services.png) no-repeat center center fixed;
 	background-blend-mode: multiply;
@@ -182,46 +191,58 @@
 	text-align: center;
 	color: #fff;
 	margin: auto;
-}
- #services h2 {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	overflow: auto;
+  }
+  
+  #services h2 {
 	font-size: 40px;
 	margin-bottom: 50px;
 	text-align: center;
- }
- 
- #services .row {
-	display: flex;
-	justify-content: center;
- }
- 
- #services .col {
+  }
+  
+  #services .row {
+	display: grid;
+	grid-template-columns: repeat(2, 2fr); 
+	gap: 100px; 
+  }
+
+  @media only screen and (max-width: 767px) {
+	#services .row {
+	  grid-template-columns: 1fr;
+	}
+  }
+  
+  #services .col {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 	text-align: center;
 	margin: 20px;
- }
- 
- #services .col img {
-	width: 60%;
-	flex-wrap: wrap;
-	
- }
- 
- #services h3 {
-	font-size: 24px;
+  }
+  
+  #services .col img {
+	width: 80%; 
+	border-radius: 30px;
+  }
+  
+  #services h3 {
+	font-size: 30px;
 	margin-top: 20px;
 	margin-bottom: 10px;
- }
- 
- #services p {
-	font-size: 18px;
+  }
+  
+  #services p {
+	font-size: 25px;
 	color: #ffffff;
- }
+  }
  
   .calculator-section {
-  max-width: 800px;
+  max-width: 1000px;
   margin: 0 auto;
   margin-bottom: 50px;
  }
@@ -231,6 +252,7 @@
 	flex-wrap: wrap;
 	justify-content: space-between;
 	align-items: stretch;
+	font-size: 25px;
  }
   
   .form-group {
@@ -247,8 +269,9 @@
   .form-group select {
 	width: 100%;
 	padding: 10px;
-	border: 2px solid #ccc;
+	border: 2px solid #919191;
 	border-radius: 5px;
+	font-size: 20px;
   }
   
   #calculate-btn {
@@ -261,6 +284,8 @@
 	border-radius: 5px;
 	cursor: pointer;
 	margin-top: 20px;
+	font-size: 20px;
+	
   }
   
   #calculate-btn:hover {
@@ -282,6 +307,7 @@
 	border-radius: 5px;
 	cursor: pointer;
 	margin-top: 20px;
+	font-size: 20px;
   }
   
   #call-btn:hover {
@@ -378,7 +404,7 @@
 }
 
 #contacts .info h4 {
-   font-size: 20px;
+   font-size: 25px;
    margin-bottom: 10px;
 }
 
