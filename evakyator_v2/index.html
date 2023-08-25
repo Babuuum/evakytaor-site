@@ -3,7 +3,7 @@
    <head>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Evacuation</title>
+      <title>RM-Evakyator</title>
       <meta name="description" content="Опытные специалисты по эвакуации автомобилей. Услуги буксировки, ночного тарифа и более. Звоните 716-22-66.">
       <link rel="stylesheet" href="css/main.css">
       <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
@@ -12,11 +12,14 @@
          <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@3.2.12/dist/leaflet-routing-machine.css" />
          <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" />
          <link rel='stylesheet' href='https://api.mapbox.com/mapbox.js/v3.3.1/mapbox.css'/>
+         <link type="image/x-icon" href="img/free-icon-tow-truck-709008.png" rel="shortcut icon">
+         <link type="Image/x-icon" href="img/free-icon-tow-truck-709008.png" rel="icon">
+
    </head>
    <body>
       <header>
          <div class="container">
-            <a href="#" class="logo">ЛазаревCoo</a>
+            <a href="#" class="logo">RM-Evakyator</a>
             <nav class="menu">
                <ul>
                   <li><a href="#about">О нас</a></li>
@@ -39,17 +42,19 @@
       <section id="about">
          <div class="container">
             <h2>О нас</h2>            
-               <p> Служба эвакуации «RM» − это коллектив профессионалов, который уже не первый год занимается перевозкой машин эвакуатором в Санкт-Петербурге и Ленинградской области. Мы стремимся найти индивидуальный подход к каждому клиенту, поэтому всегда применяется разработанная нами гибкая ценовая система с возможностью скидок и бонусов. Кроме того, наше предложение одно из самых выгодных в регионе.
-
-                  Услуги автоэвакуатора могут понадобиться каждому автовладельцу, ведь никто не застрахован от поломки транспортного средства. В этом случае доверьте все заботы об авто специалистам нашей компании. Обратившись в «Рентал Машинс», Вы можете вызвать эвакуатор в Санкт-Петербурге круглосуточно. Наши специалисты придут на помощь в любой момент. Мы понимаем, насколько ценно Ваше время, поэтому готовы приехать оперативно: от вызова до прибытия сотрудников нашей компании обычно проходит от 15 минут до часа, в зависимости от дорожной обстановки.Еще один аргумент в пользу того, чтобы воспользоваться нашими услугами эвакуации − собственный большой парк спецтехники. Грузоподъемность транспорта позволяет осуществить доставку эвакуатором по СПб легковых машин, микроавтобусов, джипов, спецтехники весом до 5 тонн.  Еще один аргумент в пользу того, чтобы воспользоваться нашими услугами эвакуации − собственный большой парк спецтехники. Грузоподъемность транспорта позволяет осуществить доставку эвакуатором по СПб легковых машин, микроавтобусов, джипов, спецтехники весом до 5 тонн. Позвонив диспетчеру по номеру (812) 716-22-66, Вы сможете узнать более подробно о ценах и условиях вызова спецавтомобиля для аварийной, быстрой эвакуации. Сохраните наш номер в своем мобильном, и в любой ситуации мы придем Вам на помощь.
-
-                  Мы не занимаемся принудительным перемещением на штрафстоянку! Воспользуйтесь нашими услугами и убедитесь сами, на сайте есть удобный калькулятор маршрута и цен</p>           
+               <p> Служба эвакуации «RM» предлагает профессиональные услуги эвакуации автомобилей в Санкт-Петербурге и Ленинградской области. 
+                  Мы применяем гибкую ценовую систему с возможностью скидок и бонусов для каждого клиента. Наши услуги автоэвакуатора доступны круглосуточно. 
+                  Мы ценим ваше время и готовы оперативно приехать по вызову. 
+                  В нашем парке специальной техники есть автомобили для эвакуации различных типов транспортных средств весом до 5 тонн. 
+                  Вы можете узнать более детальную информацию о ценах и условиях вызова эвакуатора, позвонив нам по номеру (812) 716-22-66. 
+                  Сохраните наш номер в своем мобильном, чтобы в случае необходимости мы были всегда на связи. Мы не занимаемся принудительным перемещением на штрафстоянку. 
+                  Пользуйтесь нашими профессиональными услугами эвакуации и убедитесь сами в их качестве. На нашем сайте вы можете воспользоваться калькулятором маршрута и узнать цены.</p>           
          </div>
       </section>
 
       <section id="services">
          <div class="container">
-            <h2>Наши услуги помогут вам!</h2>
+            <h2>Наши услуги, ваше спокойствие!</h2>
             <div class="row">
                <div class="col">
                   <img src="img/evacuation-service-1.jpg" alt="Evacuation service 1">
@@ -129,10 +134,15 @@
                                  <h3>ЗСД оплачивает клиент</h3>
                            </div>
                    </div>
-           
+                   
                    <button id="calculate-btn" type="button">Рассчитать</button>
-               </form>
-               <button id="call-btn" type="button">Вызвать грузовик</button>
+                   <form id="phone-form">
+                     <div class="form-group">
+                        <label for="phone-number">Введите номер телефона:</label>
+                        <input type="text" id="phone-number" name="phone-number" required>
+                     </div>
+                   <button id="call-btn" type="button">Вызвать грузовик</button>
+               </form>               
                <div id="order-details"></div>
            </div>
          </div>
@@ -153,10 +163,10 @@
                   <div class="col">
                      <h3>Email</h3>
                      <ul>
-                        <li><a>лех скинь почту</a></li>                     
+                        <li><a>9046448855@mail.ru</a></li>                     
                      </ul>
                   </div>                 
-               </div>
+               <!-- </div>
                <form action="#" method="POST" class="contact-form">
                   <div class="row">
                      <div class="col-6">
@@ -169,21 +179,23 @@
                   <textarea name="message" placeholder="Введите текст заявки:" required></textarea>
                   <button type="submit" class="btn">Отправить</button>
                </form>
-            </div>
+            </div> -->
          </section>
 
          
 
          <footer>
             <div class="container">
-               <span class="copy">© Evacuation 2023</span>
+               <span class="copy">© Evacuation 2023</span><br>
+               <span class="img-author"> img author Freepik</span>
             </div>
          </footer>
-
+            
          <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
          <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
          <script src="https://unpkg.com/leaflet-routing-machine@3.2.12/dist/leaflet-routing-machine.js"></script>
          <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
+         <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
          <script src="js/main.js"></script>                 
       </body>
    </html>
