@@ -56,14 +56,17 @@ $(document).ready(function() {
 
  var distance = document.getElementById("distance");
  let epath;
+ let startPoint;
+ let endPoint;
  control.on('routesfound', function(e) {
  var route = e.routes[0];
+ startPoint = route.waypoints[0].name;
+ endPoint = route.waypoints[1].name;
  epath = (route.summary.totalDistance/1000).toFixed(2)
- console.log(epath)
  distance.innerText = "Расстояние: " + (route.summary.totalDistance/1000).toFixed(2) + " км";
  isInArea1 = area1.getBounds().contains(route.coordinates[0]) && area1.getBounds().contains(route.coordinates[route.coordinates.length - 1]);
  isInArea2 = area2.getBounds().contains(route.coordinates[0]) && area2.getBounds().contains(route.coordinates[route.coordinates.length - 1]);
- console.log( isInArea1, isInArea2)
+ 
  });
 
 document.getElementById("calculate-btn").addEventListener("click", function calculateCost()
@@ -91,11 +94,65 @@ document.getElementById("calculate-btn").addEventListener("click", function calc
        console.log(epath, rpath, night, ditch, blockedWheels, blocked, loading)
        if (isInArea1 == true) {
          if (document.getElementById("payment-method").value === "hourly"){
-            cost.innerText = "Цена за час: " + (2500) + ", погрузка будет стоить: " + (loading + ditch + blockedWheels)
+             cost.innerText = "Цена за час: " + (2500) + ", погрузка будет стоить: " + (loading + ditch + blockedWheels)
          } else {
-            cost.innerText = "Цена: " + (80 * rpath * night + ditch + blockedWheels + loading).toFixed(2) + "руб";
+             cost.innerText = "Цена: " + (80 * rpath * night + ditch + blockedWheels + loading).toFixed(2) + "руб";
          }
       } else { cost.innerText = "Вы указали зону в который эвакуация не осуществляется, пожалуйста укажите корректные адреса в пределах СПб и ЛО, либо свяжитесь с нами по телефону: 716-22-66"
       }
     }
 );
+
+document.getElementById("call-btn").addEventListener("click", function callCar(){
+   var phone = document.getElementById("phone-number").value;
+   if (phone !== "") {
+      var orderDetails = document.getElementById("order-details")
+   
+
+         emailjs.init('X-c-1BNiHxo5LA_JT'); 
+
+      var serviceID = 'service_6tg1i28'; 
+      var templateID = 'template_h2mn6vj'; 
+
+      var templateParams = {
+         message: ' расстояние - ' + (epath) + ' точка отправления - ' + (startPoint) + ' конечная точка - ' + (endPoint) + ' цена -  ' + (orderDetails.innerText) + ' номер телефона - ' + (phone) 
+      };  
+
+      emailjs.send(serviceID, templateID, templateParams)
+         .then(function () {
+            alert('Письмо успешно отправлено!');
+         }, function (error) {
+            console.log('Произошла ошибка при отправке письма:', error);
+         });
+   } else {
+      alert("Пожалуйста, заполните поле телефона");
+   };
+   
+});
+
+// document.getElementById('contact-form').addEventListener('submit', function (event) {
+//    event.preventDefault();
+
+//    emailjs.init('X-c-1BNiHxo5LA_JT');
+
+//    var name = document.getElementsByName('name')[0].value;
+//    var email = document.getElementsByName('email')[0].value;
+//    var message = document.getElementsByName('message')[0].value;
+
+  
+//    var templateParams = {
+//       from_name: name,
+//       from_email: email,
+//       message_html: message
+//    };
+
+//    emailjs.send('service_6tg1i28', 'template_54dghob', templateParams)
+//        .then(function(response) {
+//           console.log('Письмо успешно отправлено!', response);
+//           document.getElementsByName('name')[0].value = '';
+//           document.getElementsByName('email')[0].value = '';
+//           document.getElementsByName('message')[0].value = '';
+//        }, function(error) {
+//           console.log('Ошибка при отправке письма!', error);
+//        });
+// });
